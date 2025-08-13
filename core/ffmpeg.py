@@ -46,10 +46,10 @@ async def vidmark(the_media, message, working_dir, watermark_path, output_vid, t
         await asyncio.sleep(5)
         with open(working_dir, 'r+') as file:
             text = file.read()
-            frame = re.findall("frame=(\d+)", text)
-            time_in_us=re.findall("out_time_ms=(\d+)", text)
-            progress=re.findall("progress=(\w+)", text)
-            speed=re.findall("speed=(\d+\.?\d*)", text)
+            frame = re.findall(r"frame=(\d+)", text)
+            time_in_us = re.findall(r"out_time_ms=(\d+)", text)
+            progress = re.findall(r"progress=(\w+)", text)
+            speed = re.findall(r"speed=(\d+\.?\d*)", text)
             if len(frame):
                 frame = int(frame[-1])
             else:
